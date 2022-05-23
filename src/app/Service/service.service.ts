@@ -4,6 +4,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Persona} from "../Modelo/Persona";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -17,13 +18,16 @@ export class ServiceService {
 
   Url = 'http://localhost:9090/personas'
   Url2 = 'http://localhost:9090/persona'
- // Url3 = 'http://localhost:9090/personas'
 
 
   getPersona() {
     return this.http.get<Persona[]>(this.Url);
-
   }
+
+  public getContactos(): Observable<any>{
+    return this.http.get(this.Url);
+  }
+
 
   createPersona(persona: Persona) {
     return this.http.post<Persona>(this.Url2, JSON.stringify(persona), {headers: {"Content-Type": "application/json"}});

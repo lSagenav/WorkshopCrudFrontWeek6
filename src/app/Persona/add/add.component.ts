@@ -15,6 +15,10 @@ export class AddComponent implements OnInit {
   constructor(private router: Router, private service: ServiceService) {
   }
 
+  /**
+   * aqui creamos lo que es el cuerpo del formulario con el cual enviaremos los datos de los
+   * nuevos contactos a la bd atravez de del backend
+   */
   persona: Persona = {
     id:0,
     nombre:"",
@@ -35,6 +39,10 @@ export class AddComponent implements OnInit {
 
   }
 
+  /**
+   * aqui tenemos el contructor donde tomamos los datos de los contactos y los enviamos a la bd
+   * @constructor
+   */
   Guardar() {
 
     this.persona.nombre = this.formulario.value.name
